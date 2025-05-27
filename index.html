@@ -94,10 +94,7 @@
       <p id="df">root@trackprint:~</p>
     </div>
     <div class="screen">
-      <div class="output" id="output">
-        Welcome to Track Print!
-        Type <code>help</code> to see available commands.
-      </div>
+      <div class="output" id="output"></div>
       <input type="text" id="commandInput" placeholder="Enter command..." autofocus />
     </div>
   </div>
@@ -168,6 +165,12 @@
           print("Unknown command. Type 'help' for a list of commands.");
         }
       }
+    });
+
+    // Auto-run "track-print" when page loads
+    window.addEventListener('DOMContentLoaded', () => {
+      print("Welcome to Track Print!");
+      commands["track-print"]();
     });
   </script>
 </body>
