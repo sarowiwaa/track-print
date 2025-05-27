@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#061a32" />
+    <title>Track Print</title>
+    <meta
+      name="description"
+      content="To create awareness and educate people about browser fingerprinting, Track Print provides a visual representation of data websites can collect."
+    />
+    <meta
+      name="keywords"
+      content="privacy, Browser Fingerprint, Javascript Project, Track Print, Web Tracking, Browser Profiling"
+    />
+    <link rel="canonical" href="https://sarowiwa.github.io/track-print/" />
+    <meta name="author" content="sarowiwa" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Track Print" />
+    <meta
+      property="og:description"
+      content="Track Print demonstrates browser fingerprinting and data collection awareness."
+    />
+    <meta property="og:url" content="https://sarowiwa.github.io/track-print/" />
+    <meta property="og:image" content="./assets/banner.png" />
+    
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Leaflet for location/map -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Fira Code', monospace;
+        background-color: #061a32;
+        color: #f8f8f8;
+      }
+
+      .terminal {
+        background-color: #0d1b33;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        max-width: 1100px;
+        margin: 3rem auto;
+        padding: 0;
+        overflow: hidden;
+        width: 95%;
+      }
+
+      .header {
+        background-color: #1c2a48;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #2a3d5e;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .button {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+      }
+
+      .red {
+        background-color: #ff5f56;
+      }
+
+      .yellow {
+        background-color: #ffbd2e;
+      }
+
+      .green {
+        background-color: #27c93f;
+      }
+
+      #df {
+        margin: 0;
+        font-size: 1rem;
+        color: #aab4c4;
+      }
+
+      .screen {
+        padding: 2rem;
+        min-height: 500px;
+        background-color: #0d1b33;
+        overflow-y: auto;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        border-top: 1px solid #2a3d5e;
+      }
+
+      .output {
+        white-space: pre-wrap;
+        word-break: break-word;
+        font-size: 1.05rem;
+        color: #00ff00; /* Green text */
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #98a5c0;
+      }
+
+      a {
+        color: #70c0ff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body ontouchstart="countTouches(event)" ontouchend="countTouches(event)">
+    <div class="terminal">
+      <div class="header">
+        <div class="buttons">
+          <div class="button red"></div>
+          <div class="button yellow"></div>
+          <div class="button green"></div>
+        </div>
+        <p id="df">root@trackprint:~</p>
+      </div>
+      <div class="screen">
+        <div class="output" id="output">
+          <!-- Content loaded here -->
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      &copy; Sarowiwa @2025 — <a href="https://sarowiwaa.github.io/track-print/">Visit Project</a>
+    </footer>
+
+    <!-- JS -->
+    <script src="./src/js/collect-data.js"></script>
+    <script src="./src/js/print-data.js"></script>
+    <script src="./src/js/default-command.js"></script>
+  </body>
+</html>
