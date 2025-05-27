@@ -117,7 +117,8 @@
 - help: Show this help message
 - track-print: Show browser data collected (Track Print)
 - show-location: Attempt to get your current location
-- clear: Clear terminal output`);
+- clear: Clear terminal output
+- about: Learn more about browser fingerprinting`);
       },
       clear: () => {
         output.innerHTML = '';
@@ -129,7 +130,18 @@
           platform: navigator.platform,
           hardwareConcurrency: navigator.hardwareConcurrency,
           screen: `${screen.width}x${screen.height}`,
-          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          cookiesEnabled: navigator.cookieEnabled,
+          javaEnabled: navigator.javaEnabled(),
+          online: navigator.onLine,
+          doNotTrack: navigator.doNotTrack,
+          plugins: Array.from(navigator.plugins).map(p => p.name).join(', ') || 'None',
+          mimeTypes: Array.from(navigator.mimeTypes).map(m => m.type).join(', ') || 'None',
+          touchSupport: ('ontouchstart' in window) || (navigator.maxTouchPoints > 0),
+          deviceMemory: navigator.deviceMemory || 'Unknown',
+          colorDepth: screen.colorDepth,
+          pixelDepth: screen.pixelDepth,
+          referrer: document.referrer || 'None'
         };
         let result = '--- TRACK PRINT DATA ---\n';
         for (const [key, value] of Object.entries(data)) {
@@ -152,6 +164,9 @@
           print("Geolocation is not supported by your browser.");
         }
       },
+      about: () => {
+        print(`Browser fingerprinting is a technique used by websites to collect information about your device and browser settings to uniquely identify you. This can include data like your user agent, screen resolution, installed plugins, and more. Understanding what information is shared can help you make informed decisions about your online privacy.`);
+      }
     };
 
     input.addEventListener("keydown", function (e) {
@@ -167,10 +182,11 @@
       }
     });
 
-    // Auto-run "track-print" when page loads
+    // Auto-run "track-print" and "show-location" when page loads
     window.addEventListener('DOMContentLoaded', () => {
       print("Welcome to Track Print!");
       commands["track-print"]();
+      commands["show-location"]();
     });
   </script>
 </body>
