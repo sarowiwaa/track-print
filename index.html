@@ -23,7 +23,6 @@
     />
     <meta property="og:url" content="https://sarowiwa.github.io/track-print/" />
     <meta property="og:image" content="banner.png" />
-    
 
     <!-- Fonts -->
     <link
@@ -113,7 +112,7 @@
         white-space: pre-wrap;
         word-break: break-word;
         font-size: 1.05rem;
-        color: #00ff00; /* Green text */
+        color: #00ff00;
       }
 
       footer {
@@ -146,7 +145,20 @@
       </div>
       <div class="screen">
         <div class="output" id="output">
-          <!-- Content loaded here -->
+          <h2>Welcome to Track Print</h2>
+          <p>This project demonstrates <strong>browser fingerprinting</strong> — a method websites use to gather unique data from your browser and device to track you.</p>
+          <p>Below are some commands you can explore to learn more:</p>
+
+          <ul>
+            <li><code>help</code> - Show list of available commands and what they do</li>
+            <li><code>print-fingerprint</code> - Show a summary of your browser fingerprint</li>
+            <li><code>show-location</code> - Attempt to show approximate geolocation</li>
+            <li><code>track</code> - Emulate how trackers can identify you using collected data</li>
+            <li><code>clear</code> - Clear terminal output</li>
+            <li><code>about</code> - Learn more about browser fingerprinting and why it matters</li>
+          </ul>
+
+          <p>Start typing or use the buttons above to begin exploring. Track Print is here to help raise awareness about privacy and data transparency online.</p>
         </div>
       </div>
     </div>
@@ -160,4 +172,4 @@
     <script src="print-data.js"></script>
     <script src="default-command.js"></script>
   </body>
-</html>
+  </html>
